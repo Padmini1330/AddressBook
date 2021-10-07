@@ -268,6 +268,13 @@ function getCountOfContactsByState(stateName)
 {
     console.log(addressBookArray.filter(contact => contact.state == stateName).length);
 }
+
+function sortAddressBookByName()
+{
+    console.log(addressBookArray.sort((contact1, contact2) => (contact1.firstName)
+                                .localeCompare(contact2.firstName)));
+    
+}
 console.log("Search contact by city name :")
 searchContactsByCity("Bangalore");
 
@@ -285,3 +292,6 @@ getCountOfContactsByCity("Bangalore");
 
 console.log("View contacts by state name :")
 getCountOfContactsByState("Karnataka");
+
+console.log("Sorting contacts");
+sortAddressBookByName();
