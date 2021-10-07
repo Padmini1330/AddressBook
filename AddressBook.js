@@ -137,13 +137,53 @@ class Contact
 
 let addressBookArray = new Array();
 
-let contact1 = new Contact("Mike", "Ross", "JPnagar", "Bangalore", "Karnataka", "560108", "9742555555", "mike@gmail.com");
-addressBookArray.push(contact1);
+let contact=new Contact("Mike", "Ross", "JPnagar", "Bangalore", "Karnataka", "560108", "9742555555", "mike@gmail.com");
+addressBookArray.push(contact);
 
-let contact2=new Contact("Harvey","Specter","SilkBoard","Bangalore","Karnataka","230230","9988776655",'harv@gmail.com');
-addressBookArray.push(contact2);
+addressBookArray.push(new Contact("Harvey","Specter","SilkBoard","Bangalore","Karnataka","230230","9988776655",'harv@gmail.com'));
 
-let contact3=new Contact("Padminii","Sharma","Jaynagar","Bangalore","Karnatakaa","123123","9313131313",'padmini@gmail.com');
-addressBookArray.push(contact3);
+addressBookArray.push(new Contact("Padmini","Sharma","Jaynagar","Bangalore","Karnatakaa","123123","9999999999",'padmini@gmail.com'));
 
 addressBookArray.forEach(contact => console.log(contact.toString()));
+
+function contactExists(firstName) 
+{
+    return addressBookArray.some(contact => contact.firstName == firstName );
+}
+
+function editContactDetails(firstName, property, newValue) 
+{
+    if (contactExists(firstName)) {
+        switch (property) {
+            case "lastName":
+                addressBookArray.find((contact) => contact.firstName == firstName).lastName = newValue;
+                break;
+            case "address":
+                addressBookArray.find((contact) => contact.firstName == firstName).address = newValue;
+                break;
+            case "city":
+                addressBookArray.find((contact) => contact.firstName == firstName).city = newValue;
+                break;
+            case "state":
+                addressBookArray.find((contact) => contact.firstName == firstName).state = newValue;
+                break;
+            case "zip":
+                addressBookArray.find((contact) => contact.firstName == firstName).zip = newValue;
+                break;
+            case "phoneNumber":
+                addressBookArray.find((contact) => contact.firstName == firstName).phoneNumber = newValue;
+                break;
+            case "email":
+                addressBookArray.find((contact) => contact.firstName == firstName).email = newValue;
+                break;
+            default:
+                console.log("Enter valid property");
+        }
+    }
+    else {
+        console.log("Contact Does Not Exist");
+    }
+}
+
+editContactDetails("Padmini", "lastName", "Jpnagar");
+console.log(addressBookArray);
