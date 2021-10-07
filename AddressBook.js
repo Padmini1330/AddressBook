@@ -151,6 +151,14 @@ function contactExists(phoneNumber)
     return addressBookArray.some(contact => contact.phoneNumber == phoneNumber );
 }
 
+function addContact(contact) 
+{
+    if (!contactExists(contact.phoneNumber)) 
+        addressBookArray.push(contact);
+    else 
+        throw "Contact is Present in the Address Book";
+}
+
 function editContactDetails(phoneNumber,property,newValue) 
 {
     if (contactExists(phoneNumber)) {
@@ -215,3 +223,16 @@ console.log(addressBookArray);
 
 let totalNumberOfContacts = addressBookArray.reduce(numberOfContacts,0);
 console.log("Total Number of Contacts in the Address Book Array : " + totalNumberOfContacts);
+
+
+console.log("Adding Duplicate Contact");
+try 
+{
+    addContact(contact);
+} 
+catch(error) 
+{
+    console.error(error);
+}
+console.log(addressBookArray);
+
