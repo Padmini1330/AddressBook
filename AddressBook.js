@@ -135,6 +135,15 @@ class Contact
     }
 }
 
+let addressBookArray = new Array();
 
-let contact = new Contact("Mike", "Ross", "JPnagar", "Bangalore", "Karnataka", 560108, 9742555555, "mike@gmail.com");
-console.log(contact.toString());
+let contact1 = new Contact("Mike", "Ross", "JPnagar", "Bangalore", "Karnataka", "560108", "9742555555", "mike@gmail.com");
+addressBookArray.push(contact1);
+
+let contact2=new Contact("Harvey","Specter","SilkBoard","Bangalore","Karnataka","230230","9988776655",'harv@gmail.com');
+addressBookArray.push(contact2);
+
+let contact3=new Contact("Padminii","Sharma","Jaynagar","Bangalore","Karnatakaa","123123","9313131313",'padmini@gmail.com');
+addressBookArray.push(contact3);
+
+addressBookArray.forEach(contact => console.log(contact.toString()));
