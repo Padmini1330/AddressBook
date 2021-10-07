@@ -259,7 +259,15 @@ function viewContactsByState(stateName)
     console.log(addressBookArray.filter(contact => contact.state == stateName)
                                 .map(contact => contact.firstName))
 }
+function getCountOfContactsByCity(cityName)
+{
+    console.log(addressBookArray.filter(contact => contact.city == cityName).length);
+}
 
+function getCountOfContactsByState(stateName)
+{
+    console.log(addressBookArray.filter(contact => contact.state == stateName).length);
+}
 console.log("Search contact by city name :")
 searchContactsByCity("Bangalore");
 
@@ -271,3 +279,9 @@ viewContactsByCity("Bangalore");
 
 console.log("View contacts by state name :")
 viewContactsByState("Karnataka");
+
+console.log("View contacts by city name :")
+getCountOfContactsByCity("Bangalore");
+
+console.log("View contacts by state name :")
+getCountOfContactsByState("Karnataka");
