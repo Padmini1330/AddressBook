@@ -140,50 +140,71 @@ let addressBookArray = new Array();
 let contact=new Contact("Mike", "Ross", "JPnagar", "Bangalore", "Karnataka", "560108", "9742555555", "mike@gmail.com");
 addressBookArray.push(contact);
 
-addressBookArray.push(new Contact("Harvey","Specter","SilkBoard","Bangalore","Karnataka","230230","9988776655",'harv@gmail.com'));
+addressBookArray.push(new Contact("Harvey","Specter","SilkBoard","Bangalore","Karnataka","230230","9000000000",'harv@gmail.com'));
 
 addressBookArray.push(new Contact("Padmini","Sharma","Jaynagar","Bangalore","Karnatakaa","123123","9999999999",'padmini@gmail.com'));
 
 addressBookArray.forEach(contact => console.log(contact.toString()));
 
-function contactExists(firstName) 
+function contactExists(phoneNumber) 
 {
-    return addressBookArray.some(contact => contact.firstName == firstName );
+    return addressBookArray.some(contact => contact.phoneNumber == phoneNumber );
 }
 
-function editContactDetails(firstName, property, newValue) 
+function editContactDetails(phoneNumber,property,newValue) 
 {
-    if (contactExists(firstName)) {
+    if (contactExists(phoneNumber)) {
         switch (property) {
+            case "FirstName":
+                addressBookArray.find((contact) => contact.phoneNumber == phoneNumber).firstName = newValue;
+                break;
             case "lastName":
-                addressBookArray.find((contact) => contact.firstName == firstName).lastName = newValue;
+                addressBookArray.find((contact) => contact.phoneNumber == phoneNumber).lastName = newValue;
                 break;
             case "address":
-                addressBookArray.find((contact) => contact.firstName == firstName).address = newValue;
+                addressBookArray.find((contact) => contact.phoneNumber == phoneNumber).address = newValue;
                 break;
             case "city":
-                addressBookArray.find((contact) => contact.firstName == firstName).city = newValue;
+                addressBookArray.find((contact) => contact.phoneNumber == phoneNumber).city = newValue;
                 break;
             case "state":
-                addressBookArray.find((contact) => contact.firstName == firstName).state = newValue;
+                addressBookArray.find((contact) => contact.phoneNumber == phoneNumber).state = newValue;
                 break;
             case "zip":
-                addressBookArray.find((contact) => contact.firstName == firstName).zip = newValue;
+                addressBookArray.find((contact) => contact.phoneNumber == phoneNumber).zip = newValue;
                 break;
             case "phoneNumber":
-                addressBookArray.find((contact) => contact.firstName == firstName).phoneNumber = newValue;
+                addressBookArray.find((contact) => contact.phoneNumber == phoneNumber).phoneNumber = newValue;
                 break;
             case "email":
-                addressBookArray.find((contact) => contact.firstName == firstName).email = newValue;
+                addressBookArray.find((contact) => contact.phoneNumber == phoneNumber).email = newValue;
                 break;
             default:
                 console.log("Enter valid property");
         }
     }
-    else {
+    else 
+    {
         console.log("Contact Does Not Exist");
     }
 }
 
-editContactDetails("Padmini", "lastName", "Jpnagar");
+function deleteContact(phoneNumber)
+{
+    let index = addressBookArray.findIndex(contact => contact.phoneNumber == phoneNumber)
+    if (index != -1) 
+    {
+        addressBookArray.splice(index, 1)
+    } 
+    else 
+    {
+        console.log(`${phoneNumber} not found`)
+    }
+}
+
+editContactDetails("9000000000", "state", "tamilnadu");
 console.log(addressBookArray);
+
+deleteContact("9000000000");
+console.log("After deleting contact from address book : ")
+console.log(addressBookArray);    
