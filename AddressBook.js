@@ -236,3 +236,13 @@ catch(error)
 }
 console.log(addressBookArray);
 
+{
+    console.log("Search contact by city name :")
+    let cityName = "Bangalore"
+    addressBookArray.filter(contact => contact.city == cityName)
+                    .forEach(contact => console.log(contact.toString()))
+    console.log("Search contact by state name :")
+    let stateName = "Karnataka"
+    addressBookArray.filter(contact => contact.state == stateName)
+                    .forEach(contact => console.log(contact.toString()))    
+}
