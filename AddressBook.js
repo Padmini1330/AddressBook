@@ -204,40 +204,6 @@ function numberOfContacts(totalCount)
 {
     return totalCount + 1;
 }
-let addressBookArray = new Array();
-
-let contact=new Contact("Mike", "Ross", "JPnagar", "Bangalore", "Karnataka", "560108", "9742555555", "mike@gmail.com");
-addressBookArray.push(contact);
-
-addressBookArray.push(new Contact("Harvey","Specter","SilkBoard","Bangalore","Karnataka","230230","9000000000",'harv@gmail.com'));
-
-addressBookArray.push(new Contact("Padmini","Sharma","Jaynagar","Bangalore","Karnatakaa","123123","9999999999",'padmini@gmail.com'));
-
-addressBookArray.push(new Contact("Robert","Zane","jpnagar","Bangalore","Karnataka","230231","9000000001",'robert@gmail.com'));
-
-addressBookArray.forEach(contact => console.log(contact.toString()));
-
-editContactDetails("9000000000", "state", "tamilnadu");
-console.log(addressBookArray);
-
-deleteContact("9000000000");
-console.log("After deleting contact from address book : ")
-console.log(addressBookArray);    
-
-let totalNumberOfContacts = addressBookArray.reduce(numberOfContacts,0);
-console.log("Total Number of Contacts in the Address Book Array : " + totalNumberOfContacts);
-
-
-console.log("Adding Duplicate Contact");
-try 
-{
-    addContact(contact);
-} 
-catch(error) 
-{
-    console.error(error);
-}
-console.log(addressBookArray);
 
 function searchContactsByCity(cityName)
 {
@@ -290,6 +256,44 @@ function sortAddressBookContacts()
     console.log(addressBookArray.sort((contact1, contact2) => (contact1.zip)
                                 .localeCompare(contact2.zip)));                                               
 }
+
+
+let addressBookArray = new Array();
+
+let contact=new Contact("Mike", "Ross", "JPnagar", "Bangalore", "Karnataka", "560108", "9742555555", "mike@gmail.com");
+addressBookArray.push(contact);
+
+addressBookArray.push(new Contact("Harvey","Specter","SilkBoard","Bangalore","Karnataka","230230","9000000000",'harv@gmail.com'));
+
+addressBookArray.push(new Contact("Padmini","Sharma","Jaynagar","Bangalore","Karnatakaa","123123","9999999999",'padmini@gmail.com'));
+
+addressBookArray.push(new Contact("Robert","Zane","jpnagar","Bangalore","Karnataka","230231","9000000001",'robert@gmail.com'));
+
+addressBookArray.forEach(contact => console.log(contact.toString()));
+
+editContactDetails("9000000000", "state", "tamilnadu");
+console.log(addressBookArray);
+
+deleteContact("9000000000");
+console.log("After deleting contact from address book : ")
+console.log(addressBookArray);    
+
+let totalNumberOfContacts = addressBookArray.reduce(numberOfContacts,0);
+console.log("Total Number of Contacts in the Address Book Array : " + totalNumberOfContacts);
+
+
+console.log("Adding Duplicate Contact");
+try 
+{
+    addContact(contact);
+} 
+catch(error) 
+{
+    console.error(error);
+}
+console.log(addressBookArray);
+
+
 console.log("Search contact by city name :")
 searchContactsByCity("Bangalore");
 
