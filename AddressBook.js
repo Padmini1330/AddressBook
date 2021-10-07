@@ -135,16 +135,6 @@ class Contact
     }
 }
 
-let addressBookArray = new Array();
-
-let contact=new Contact("Mike", "Ross", "JPnagar", "Bangalore", "Karnataka", "560108", "9742555555", "mike@gmail.com");
-addressBookArray.push(contact);
-
-addressBookArray.push(new Contact("Harvey","Specter","SilkBoard","Bangalore","Karnataka","230230","9000000000",'harv@gmail.com'));
-
-addressBookArray.push(new Contact("Padmini","Sharma","Jaynagar","Bangalore","Karnatakaa","123123","9999999999",'padmini@gmail.com'));
-
-addressBookArray.forEach(contact => console.log(contact.toString()));
 
 function contactExists(phoneNumber) 
 {
@@ -214,6 +204,19 @@ function numberOfContacts(totalCount)
 {
     return totalCount + 1;
 }
+let addressBookArray = new Array();
+
+let contact=new Contact("Mike", "Ross", "JPnagar", "Bangalore", "Karnataka", "560108", "9742555555", "mike@gmail.com");
+addressBookArray.push(contact);
+
+addressBookArray.push(new Contact("Harvey","Specter","SilkBoard","Bangalore","Karnataka","230230","9000000000",'harv@gmail.com'));
+
+addressBookArray.push(new Contact("Padmini","Sharma","Jaynagar","Bangalore","Karnatakaa","123123","9999999999",'padmini@gmail.com'));
+
+addressBookArray.push(new Contact("Robert","Zane","jpnagar","Bangalore","Karnataka","230231","9000000001",'robert@gmail.com'));
+
+addressBookArray.forEach(contact => console.log(contact.toString()));
+
 editContactDetails("9000000000", "state", "tamilnadu");
 console.log(addressBookArray);
 
@@ -269,11 +272,23 @@ function getCountOfContactsByState(stateName)
     console.log(addressBookArray.filter(contact => contact.state == stateName).length);
 }
 
-function sortAddressBookByName()
+function sortAddressBookContacts()
 {
+    console.log("Sorting contacts by firstname");
     console.log(addressBookArray.sort((contact1, contact2) => (contact1.firstName)
                                 .localeCompare(contact2.firstName)));
+
+    console.log("Sorting contacts by city");
+    console.log(addressBookArray.sort((contact1, contact2) => (contact1.city)
+                                .localeCompare(contact2.city)));                                
     
+    console.log("Sorting contacts by state");
+    console.log(addressBookArray.sort((contact1, contact2) => (contact1.state)
+                                .localeCompare(contact2.state)));
+
+    console.log("Sorting contacts by zip");
+    console.log(addressBookArray.sort((contact1, contact2) => (contact1.zip)
+                                .localeCompare(contact2.zip)));                                               
 }
 console.log("Search contact by city name :")
 searchContactsByCity("Bangalore");
@@ -294,4 +309,4 @@ console.log("View contacts by state name :")
 getCountOfContactsByState("Karnataka");
 
 console.log("Sorting contacts");
-sortAddressBookByName();
+sortAddressBookContacts();
