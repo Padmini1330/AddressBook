@@ -236,13 +236,38 @@ catch(error)
 }
 console.log(addressBookArray);
 
+function searchContactsByCity(cityName)
 {
-    console.log("Search contact by city name :")
-    let cityName = "Bangalore"
     addressBookArray.filter(contact => contact.city == cityName)
                     .forEach(contact => console.log(contact.toString()))
-    console.log("Search contact by state name :")
-    let stateName = "Karnataka"
-    addressBookArray.filter(contact => contact.state == stateName)
-                    .forEach(contact => console.log(contact.toString()))    
 }
+
+function searchContactsByState(stateName)
+{
+    addressBookArray.filter(contact => contact.state == stateName)
+                    .forEach(contact => console.log(contact.toString()))
+}
+
+function viewContactsByCity(cityName)
+{
+    console.log(addressBookArray.filter(contact => contact.city == cityName)
+                                .map(contact => contact.firstName))
+}  
+
+function viewContactsByState(stateName)
+{
+    console.log(addressBookArray.filter(contact => contact.state == stateName)
+                                .map(contact => contact.firstName))
+}
+
+console.log("Search contact by city name :")
+searchContactsByCity("Bangalore");
+
+console.log("Search contact by state name :")
+searchContactsByState("Karnataka");
+
+console.log("View contacts by city name :")
+viewContactsByCity("Bangalore");
+
+console.log("View contacts by state name :")
+viewContactsByState("Karnataka");
