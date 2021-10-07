@@ -202,9 +202,16 @@ function deleteContact(phoneNumber)
     }
 }
 
+function numberOfContacts(totalCount) 
+{
+    return totalCount + 1;
+}
 editContactDetails("9000000000", "state", "tamilnadu");
 console.log(addressBookArray);
 
 deleteContact("9000000000");
 console.log("After deleting contact from address book : ")
 console.log(addressBookArray);    
+
+let totalNumberOfContacts = addressBookArray.reduce(numberOfContacts,0);
+console.log("Total Number of Contacts in the Address Book Array : " + totalNumberOfContacts);
